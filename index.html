@@ -1,105 +1,152 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8" />
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Ravi ❤️ Bujji</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300&display=swap" rel="stylesheet">
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
 
 :root{
- --green:#0f2e25;
- --sage:#1f4d3b;
- --cream:#f6f3ee;
+ --dark:#0f2e25;
+ --green:#1f4d3b;
+ --light:#f6f3ee;
+ --gold:#d4af37;
 }
 
 body{
  margin:0;
  font-family:Poppins;
- background:var(--cream);
+ background:var(--light);
  color:#333;
+ overflow-x:hidden;
 }
 
 /* HERO */
 .hero{
- background:var(--green);
+ height:100vh;
+ background:linear-gradient(rgba(15,46,37,.75),rgba(15,46,37,.75)), url("hero.jpg") center/cover;
+ display:flex;
+ flex-direction:column;
+ justify-content:center;
+ align-items:center;
  color:white;
  text-align:center;
- padding:80px 20px;
 }
 
 .hero h1{
  font-family:'Playfair Display';
- font-size:48px;
+ font-size:55px;
  margin:0;
+ animation:fadeIn 2s ease;
 }
 
-.hero img{
- width:90%;
- max-width:500px;
- border-radius:18px;
+.hero p{
+ margin-top:15px;
+ font-size:20px;
+}
+
+.btn{
  margin-top:30px;
+ padding:12px 26px;
+ border:none;
+ border-radius:30px;
+ background:var(--gold);
+ color:black;
+ font-weight:bold;
+ cursor:pointer;
 }
 
 /* STORY */
-.story{
- max-width:850px;
+.section{
+ max-width:900px;
  margin:auto;
- padding:70px 25px;
- font-size:18px;
- line-height:1.9;
+ padding:80px 25px;
  text-align:center;
 }
 
-/* SPLIT LAYOUT */
+.section h2{
+ font-family:'Playfair Display';
+ font-size:40px;
+ margin-bottom:30px;
+}
+
+.story-text{
+ line-height:2;
+ font-size:18px;
+}
+
+/* SPLIT PHOTO + TEXT */
 .split{
  display:flex;
- flex-wrap:wrap;
- gap:30px;
+ gap:40px;
  align-items:center;
+ margin:70px auto;
  max-width:1100px;
- margin:auto;
- padding:60px 20px;
+ padding:0 20px;
 }
 
 .split img{
- width:400px;
- border-radius:16px;
+ width:420px;
+ border-radius:20px;
+ box-shadow:0 15px 40px rgba(0,0,0,.2);
 }
 
 .split p{
  flex:1;
- font-size:20px;
+ font-size:19px;
+ line-height:1.9;
 }
 
-/* GRID */
-.grid{
+@media(max-width:800px){
+ .split{
+  flex-direction:column;
+ }
+}
+
+/* GALLERY */
+.gallery{
+ padding:50px 20px;
  display:grid;
  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
- gap:10px;
- padding:40px 20px;
+ gap:12px;
 }
 
-.grid img{
+.gallery img{
  width:100%;
- border-radius:10px;
+ border-radius:12px;
+ transition:.3s;
 }
 
-/* BUTTONS */
-.center{
- text-align:center;
- padding:30px;
+.gallery img:hover{
+ transform:scale(1.05);
 }
 
-button{
- padding:12px 24px;
- border:none;
- border-radius:25px;
- background:var(--sage);
+/* FOOTER */
+.footer{
+ background:var(--dark);
  color:white;
+ text-align:center;
+ padding:60px 20px;
+ font-size:18px;
+}
+
+/* ANIMATION */
+@keyframes fadeIn{
+ from{opacity:0;transform:translateY(20px)}
+ to{opacity:1;transform:none}
+}
+
+/* FIREWORKS */
+canvas{
+ position:fixed;
+ top:0;
+ left:0;
+ pointer-events:none;
 }
 
 </style>
@@ -111,42 +158,47 @@ button{
 <section class="hero">
 <h1>Happy Valentine’s Day Bujji 💚</h1>
 <p id="days"></p>
-<img src="hero.jpg">
+<button class="btn" onclick="music.play()">🎵 Our Song</button>
 </section>
 
-<!-- STORY -->
-<section class="story">
-<p>
-From strangers at a mall… to best friends… to husband and wife…
-every step with you has been the most beautiful chapter of my life.
-</p>
-<p>
-You are my calm, my happiness, my forever.
-In every lifetime, I will still choose you.
-</p>
+
+<!-- LOVE STORY -->
+<section class="section">
+<h2>Our Love Story</h2>
+
+<div class="story-text">
+We met on a quiet December day — strangers with nervous smiles.  
+What started as a simple meeting slowly turned into endless conversations, laughter, and comfort.<br><br>
+
+On January 24th, our families met… hearts aligned… and destiny quietly said “yes”.<br><br>
+
+Then on February 8th, I asked you to be mine — and life became brighter than ever.<br><br>
+
+And on June 8th, we didn’t just marry…  
+we promised forever.<br><br>
+
+From that day till today… every moment with you feels like home.  
+You are my calm in chaos, my happiness in silence, my forever person.  
+In every lifetime, I would still choose you, Bujji. 💚
+</div>
 </section>
 
-<!-- SPLIT STORY SECTIONS -->
-<section class="split">
+
+<!-- SPLIT SECTIONS -->
+<div class="split">
 <img src="photo1.jpg">
-<p>
-The first smile, the first conversation,
-the nervousness we both tried to hide —
-that was the moment destiny quietly began writing our story.
-</p>
-</section>
+<p>The first smile that stole my heart… the moment everything began.</p>
+</div>
 
-<section class="split">
-<p>
-Days turned into memories,
-memories turned into love,
-and love turned into forever.
-</p>
+<div class="split">
+<p>From strangers… to best friends… to husband & wife.  
+Every memory with you is my favorite chapter.</p>
 <img src="photo2.jpg">
-</section>
+</div>
+
 
 <!-- GALLERY -->
-<section class="grid">
+<section class="gallery">
 <img src="photo3.jpg">
 <img src="photo4.jpg">
 <img src="photo5.jpg">
@@ -160,18 +212,64 @@ and love turned into forever.
 <img src="photo13.jpg">
 </section>
 
-<div class="center">
-<button onclick="music.play()">🎵 Play Our Song</button>
+
+<!-- FOOTER -->
+<div class="footer">
+Forever Yours ❤️ Ravi
 </div>
 
-<audio id="music" loop>
+
+<!-- MUSIC -->
+<audio id="music" autoplay loop>
 <source src="song.mp3" type="audio/mpeg">
 </audio>
 
+
+<!-- COUNTDOWN -->
 <script>
 const start=new Date("June 8, 2025");
 const diff=Math.floor((new Date()-start)/(1000*60*60*24));
-document.getElementById("days").innerHTML="Married for "+diff+" days 💚";
+document.getElementById("days").innerHTML="Married for "+diff+" beautiful days 💚";
+</script>
+
+
+<!-- FIREWORKS -->
+<canvas id="c"></canvas>
+<script>
+const canvas=document.getElementById("c");
+const ctx=canvas.getContext("2d");
+canvas.width=innerWidth;
+canvas.height=innerHeight;
+
+let particles=[];
+
+function firework(){
+ for(let i=0;i<50;i++){
+  particles.push({
+   x:innerWidth/2,
+   y:innerHeight/2,
+   vx:(Math.random()-0.5)*6,
+   vy:(Math.random()-0.5)*6,
+   life:100
+  });
+ }
+}
+
+function draw(){
+ ctx.clearRect(0,0,canvas.width,canvas.height);
+ particles.forEach((p,i)=>{
+  p.x+=p.vx;
+  p.y+=p.vy;
+  p.life--;
+  ctx.fillStyle="gold";
+  ctx.fillRect(p.x,p.y,2,2);
+  if(p.life<=0) particles.splice(i,1);
+ });
+ requestAnimationFrame(draw);
+}
+
+setInterval(firework,2000);
+draw();
 </script>
 
 </body>
